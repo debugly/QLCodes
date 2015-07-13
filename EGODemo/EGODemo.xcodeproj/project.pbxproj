@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4C1752719EC1E1E005504B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1752619EC1E1E005504B7 /* Foundation.framework */; };
+		B4C1752919EC1E1E005504B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1752819EC1E1E005504B7 /* CoreGraphics.framework */; };
+		B4C1752B19EC1E1E005504B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1752A19EC1E1E005504B7 /* UIKit.framework */; };
+		B4C1753119EC1E1E005504B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C1752F19EC1E1E005504B7 /* InfoPlist.strings */; };
+		B4C1753319EC1E1E005504B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1753219EC1E1E005504B7 /* main.m */; };
+		B4C1753719EC1E1E005504B7 /* QLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1753619EC1E1E005504B7 /* QLAppDelegate.m */; };
+		B4C1753A19EC1E1E005504B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4C1753819EC1E1E005504B7 /* Main.storyboard */; };
+		B4C1753D19EC1E1E005504B7 /* QLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1753C19EC1E1E005504B7 /* QLViewController.m */; };
+		B4C1753F19EC1E1E005504B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4C1753E19EC1E1E005504B7 /* Images.xcassets */; };
+		B4C1754619EC1E1E005504B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1754519EC1E1E005504B7 /* XCTest.framework */; };
+		B4C1754719EC1E1E005504B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1752619EC1E1E005504B7 /* Foundation.framework */; };
+		B4C1754819EC1E1E005504B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C1752A19EC1E1E005504B7 /* UIKit.framework */; };
+		B4C1755019EC1E1E005504B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4C1754E19EC1E1E005504B7 /* InfoPlist.strings */; };
+		B4C1755219EC1E1E005504B7 /* EGODemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1755119EC1E1E005504B7 /* EGODemoTests.m */; };
+		B4C1755E19EC1E91005504B7 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4C1755D19EC1E91005504B7 /* EGORefreshTableHeaderView.m */; };
+		B4C1756719EC2769005504B7 /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1755F19EC2769005504B7 /* grayArrow.png */; };
+		B4C1756819EC2769005504B7 /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756019EC2769005504B7 /* grayArrow@2x.png */; };
+		B4C1756919EC2769005504B7 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756119EC2769005504B7 /* blackArrow.png */; };
+		B4C1756A19EC2769005504B7 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756219EC2769005504B7 /* blackArrow@2x.png */; };
+		B4C1756B19EC2769005504B7 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756319EC2769005504B7 /* blueArrow.png */; };
+		B4C1756C19EC2769005504B7 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756419EC2769005504B7 /* blueArrow@2x.png */; };
+		B4C1756D19EC2769005504B7 /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756519EC2769005504B7 /* whiteArrow.png */; };
+		B4C1756E19EC2769005504B7 /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4C1756619EC2769005504B7 /* whiteArrow@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B4C1754919EC1E1E005504B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B4C1751B19EC1E1E005504B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B4C1752219EC1E1E005504B7;
+			remoteInfo = EGODemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B4C1752319EC1E1E005504B7 /* EGODemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EGODemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C1752619EC1E1E005504B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4C1752819EC1E1E005504B7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4C1752A19EC1E1E005504B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B4C1752E19EC1E1E005504B7 /* EGODemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EGODemo-Info.plist"; sourceTree = "<group>"; };
+		B4C1753019EC1E1E005504B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4C1753219EC1E1E005504B7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B4C1753419EC1E1E005504B7 /* EGODemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EGODemo-Prefix.pch"; sourceTree = "<group>"; };
+		B4C1753519EC1E1E005504B7 /* QLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLAppDelegate.h; sourceTree = "<group>"; };
+		B4C1753619EC1E1E005504B7 /* QLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLAppDelegate.m; sourceTree = "<group>"; };
+		B4C1753919EC1E1E005504B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4C1753B19EC1E1E005504B7 /* QLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLViewController.h; sourceTree = "<group>"; };
+		B4C1753C19EC1E1E005504B7 /* QLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLViewController.m; sourceTree = "<group>"; };
+		B4C1753E19EC1E1E005504B7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B4C1754419EC1E1E005504B7 /* EGODemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EGODemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C1754519EC1E1E005504B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B4C1754D19EC1E1E005504B7 /* EGODemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EGODemoTests-Info.plist"; sourceTree = "<group>"; };
+		B4C1754F19EC1E1E005504B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B4C1755119EC1E1E005504B7 /* EGODemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EGODemoTests.m; sourceTree = "<group>"; };
+		B4C1755C19EC1E91005504B7 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		B4C1755D19EC1E91005504B7 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		B4C1755F19EC2769005504B7 /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayArrow.png; sourceTree = "<group>"; };
+		B4C1756019EC2769005504B7 /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayArrow@2x.png"; sourceTree = "<group>"; };
+		B4C1756119EC2769005504B7 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
+		B4C1756219EC2769005504B7 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
+		B4C1756319EC2769005504B7 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		B4C1756419EC2769005504B7 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		B4C1756519EC2769005504B7 /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteArrow.png; sourceTree = "<group>"; };
+		B4C1756619EC2769005504B7 /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whiteArrow@2x.png"; sourceTree = "<group>"; };
+		B4C1757019EC293D005504B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B4C1757119EC293D005504B7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		B4C1757419EC2B72005504B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4C1752019EC1E1E005504B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1752919EC1E1E005504B7 /* CoreGraphics.framework in Frameworks */,
+				B4C1752B19EC1E1E005504B7 /* UIKit.framework in Frameworks */,
+				B4C1752719EC1E1E005504B7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4C1754119EC1E1E005504B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1754619EC1E1E005504B7 /* XCTest.framework in Frameworks */,
+				B4C1754819EC1E1E005504B7 /* UIKit.framework in Frameworks */,
+				B4C1754719EC1E1E005504B7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4C1751A19EC1E1E005504B7 = {
+			isa = PBXGroup;
+			children = (
+				B4C1752C19EC1E1E005504B7 /* EGODemo */,
+				B4C1754B19EC1E1E005504B7 /* EGODemoTests */,
+				B4C1752519EC1E1E005504B7 /* Frameworks */,
+				B4C1752419EC1E1E005504B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4C1752419EC1E1E005504B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1752319EC1E1E005504B7 /* EGODemo.app */,
+				B4C1754419EC1E1E005504B7 /* EGODemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4C1752519EC1E1E005504B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1752619EC1E1E005504B7 /* Foundation.framework */,
+				B4C1752819EC1E1E005504B7 /* CoreGraphics.framework */,
+				B4C1752A19EC1E1E005504B7 /* UIKit.framework */,
+				B4C1754519EC1E1E005504B7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4C1752C19EC1E1E005504B7 /* EGODemo */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1755B19EC1E91005504B7 /* RefreshTableHeaderView */,
+				B4C1753519EC1E1E005504B7 /* QLAppDelegate.h */,
+				B4C1753619EC1E1E005504B7 /* QLAppDelegate.m */,
+				B4C1753819EC1E1E005504B7 /* Main.storyboard */,
+				B4C1753B19EC1E1E005504B7 /* QLViewController.h */,
+				B4C1753C19EC1E1E005504B7 /* QLViewController.m */,
+				B4C1753E19EC1E1E005504B7 /* Images.xcassets */,
+				B4C1752D19EC1E1E005504B7 /* Supporting Files */,
+			);
+			path = EGODemo;
+			sourceTree = "<group>";
+		};
+		B4C1752D19EC1E1E005504B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1752E19EC1E1E005504B7 /* EGODemo-Info.plist */,
+				B4C1752F19EC1E1E005504B7 /* InfoPlist.strings */,
+				B4C1753219EC1E1E005504B7 /* main.m */,
+				B4C1753419EC1E1E005504B7 /* EGODemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4C1754B19EC1E1E005504B7 /* EGODemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1755119EC1E1E005504B7 /* EGODemoTests.m */,
+				B4C1754C19EC1E1E005504B7 /* Supporting Files */,
+			);
+			path = EGODemoTests;
+			sourceTree = "<group>";
+		};
+		B4C1754C19EC1E1E005504B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1754D19EC1E1E005504B7 /* EGODemoTests-Info.plist */,
+				B4C1754E19EC1E1E005504B7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4C1755B19EC1E91005504B7 /* RefreshTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				B4C1755F19EC2769005504B7 /* grayArrow.png */,
+				B4C1756019EC2769005504B7 /* grayArrow@2x.png */,
+				B4C1756119EC2769005504B7 /* blackArrow.png */,
+				B4C1756219EC2769005504B7 /* blackArrow@2x.png */,
+				B4C1756319EC2769005504B7 /* blueArrow.png */,
+				B4C1756419EC2769005504B7 /* blueArrow@2x.png */,
+				B4C1756519EC2769005504B7 /* whiteArrow.png */,
+				B4C1756619EC2769005504B7 /* whiteArrow@2x.png */,
+				B4C1755C19EC1E91005504B7 /* EGORefreshTableHeaderView.h */,
+				B4C1755D19EC1E91005504B7 /* EGORefreshTableHeaderView.m */,
+			);
+			path = RefreshTableHeaderView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4C1752219EC1E1E005504B7 /* EGODemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4C1755519EC1E1E005504B7 /* Build configuration list for PBXNativeTarget "EGODemo" */;
+			buildPhases = (
+				B4C1751F19EC1E1E005504B7 /* Sources */,
+				B4C1752019EC1E1E005504B7 /* Frameworks */,
+				B4C1752119EC1E1E005504B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EGODemo;
+			productName = EGODemo;
+			productReference = B4C1752319EC1E1E005504B7 /* EGODemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B4C1754319EC1E1E005504B7 /* EGODemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4C1755819EC1E1E005504B7 /* Build configuration list for PBXNativeTarget "EGODemoTests" */;
+			buildPhases = (
+				B4C1754019EC1E1E005504B7 /* Sources */,
+				B4C1754119EC1E1E005504B7 /* Frameworks */,
+				B4C1754219EC1E1E005504B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4C1754A19EC1E1E005504B7 /* PBXTargetDependency */,
+			);
+			name = EGODemoTests;
+			productName = EGODemoTests;
+			productReference = B4C1754419EC1E1E005504B7 /* EGODemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4C1751B19EC1E1E005504B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = xuqianlong;
+				TargetAttributes = {
+					B4C1754319EC1E1E005504B7 = {
+						TestTargetID = B4C1752219EC1E1E005504B7;
+					};
+				};
+			};
+			buildConfigurationList = B4C1751E19EC1E1E005504B7 /* Build configuration list for PBXProject "EGODemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = B4C1751A19EC1E1E005504B7;
+			productRefGroup = B4C1752419EC1E1E005504B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4C1752219EC1E1E005504B7 /* EGODemo */,
+				B4C1754319EC1E1E005504B7 /* EGODemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4C1752119EC1E1E005504B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1753F19EC1E1E005504B7 /* Images.xcassets in Resources */,
+				B4C1756A19EC2769005504B7 /* blackArrow@2x.png in Resources */,
+				B4C1756919EC2769005504B7 /* blackArrow.png in Resources */,
+				B4C1756E19EC2769005504B7 /* whiteArrow@2x.png in Resources */,
+				B4C1756B19EC2769005504B7 /* blueArrow.png in Resources */,
+				B4C1753119EC1E1E005504B7 /* InfoPlist.strings in Resources */,
+				B4C1756719EC2769005504B7 /* grayArrow.png in Resources */,
+				B4C1756C19EC2769005504B7 /* blueArrow@2x.png in Resources */,
+				B4C1756D19EC2769005504B7 /* whiteArrow.png in Resources */,
+				B4C1756819EC2769005504B7 /* grayArrow@2x.png in Resources */,
+				B4C1753A19EC1E1E005504B7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4C1754219EC1E1E005504B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1755019EC1E1E005504B7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4C1751F19EC1E1E005504B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1755E19EC1E91005504B7 /* EGORefreshTableHeaderView.m in Sources */,
+				B4C1753D19EC1E1E005504B7 /* QLViewController.m in Sources */,
+				B4C1753319EC1E1E005504B7 /* main.m in Sources */,
+				B4C1753719EC1E1E005504B7 /* QLAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4C1754019EC1E1E005504B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4C1755219EC1E1E005504B7 /* EGODemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4C1754A19EC1E1E005504B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B4C1752219EC1E1E005504B7 /* EGODemo */;
+			targetProxy = B4C1754919EC1E1E005504B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B4C1752F19EC1E1E005504B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4C1753019EC1E1E005504B7 /* en */,
+				B4C1757019EC293D005504B7 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B4C1753819EC1E1E005504B7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4C1753919EC1E1E005504B7 /* Base */,
+				B4C1757419EC2B72005504B7 /* en */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4C1754E19EC1E1E005504B7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4C1754F19EC1E1E005504B7 /* en */,
+				B4C1757119EC293D005504B7 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4C1755319EC1E1E005504B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B4C1755419EC1E1E005504B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4C1755619EC1E1E005504B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGODemo/EGODemo-Prefix.pch";
+				INFOPLIST_FILE = "EGODemo/EGODemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B4C1755719EC1E1E005504B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGODemo/EGODemo-Prefix.pch";
+				INFOPLIST_FILE = "EGODemo/EGODemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B4C1755919EC1E1E005504B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EGODemo.app/EGODemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGODemo/EGODemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "EGODemoTests/EGODemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B4C1755A19EC1E1E005504B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EGODemo.app/EGODemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EGODemo/EGODemo-Prefix.pch";
+				INFOPLIST_FILE = "EGODemoTests/EGODemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4C1751E19EC1E1E005504B7 /* Build configuration list for PBXProject "EGODemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C1755319EC1E1E005504B7 /* Debug */,
+				B4C1755419EC1E1E005504B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4C1755519EC1E1E005504B7 /* Build configuration list for PBXNativeTarget "EGODemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C1755619EC1E1E005504B7 /* Debug */,
+				B4C1755719EC1E1E005504B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B4C1755819EC1E1E005504B7 /* Build configuration list for PBXNativeTarget "EGODemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4C1755919EC1E1E005504B7 /* Debug */,
+				B4C1755A19EC1E1E005504B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B4C1751B19EC1E1E005504B7 /* Project object */;
+}
