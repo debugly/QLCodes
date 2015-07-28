@@ -13,7 +13,7 @@
 //https://github.com/AFNetworking/AFNetworking
 //http://nshipster.com/afnetworking-2/
 
-#define kNetworkLocation       @"http://192.168.0.117:8888/index.php"
+#define kNetworkLocation       @"http://localhost:8888/index.php"
 #define kNetworkRequestTimeOutInSeconds 25
 
 @implementation QLNetworkEngine

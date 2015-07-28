@@ -151,6 +151,9 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 @property (readwrite, nonatomic, copy) AFURLConnectionOperationCacheResponseBlock cacheResponse;
 @property (readwrite, nonatomic, copy) AFURLConnectionOperationRedirectResponseBlock redirectResponse;
 
+@property (nonatomic, strong) NSOutputStream *fileDownloadOutputStream;
+@property (nonatomic, copy)   NSString * temporaryFileDownloadPath;
+
 - (void)operationDidStart;
 - (void)finish;
 - (void)cancelConnection;
@@ -455,6 +458,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 - (void)operationDidStart {
     [self.lock lock];
     if (![self isCancelled]) {
+        
         self.connection = [[NSURLConnection alloc] initWithRequest:self.request delegate:self startImmediately:NO];
 
         NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
@@ -660,12 +664,12 @@ didReceiveResponse:(NSURLResponse *)response
                 if (numberOfBytesWritten == -1) {
                     break;
                 }
-
                 totalNumberOfBytesWritten += numberOfBytesWritten;
             }
 
             break;
         }
+        
 
         if (self.outputStream.streamError) {
             [self.connection cancel];
@@ -674,6 +678,40 @@ didReceiveResponse:(NSURLResponse *)response
         }
     }
 
+//    如果设置了下载地址；
+    if ([self downloadDestinationPath]) {
+        BOOL append = NO;
+        if (![self fileDownloadOutputStream]) {
+            if (![self temporaryFileDownloadPath]) {
+//
+                [self setTemporaryFileDownloadPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSProcessInfo processInfo]globallyUniqueString]]];
+            }else if (![self notAllowResumeForFileDownloads] && [[self.request allHTTPHeaderFields] objectForKey:@"Range"]){
+                if ([[self.request allHTTPHeaderFields] objectForKey:@"Content-Range"]) {
+                    append = YES;
+                }
+            }
+            [self setFileDownloadOutputStream:[NSOutputStream outputStreamToFileAtPath:[self temporaryFileDownloadPath] append:append]];
+            [[self fileDownloadOutputStream]open];
+        }
+        NSInteger totalNumberOfBytesWritten = 0;
+        const uint8_t *dataBuffer = (uint8_t *)[data bytes];
+        
+        NSInteger numberOfBytesWritten = 0;
+        while (totalNumberOfBytesWritten < (NSInteger)length) {
+            numberOfBytesWritten = [self.fileDownloadOutputStream write:&dataBuffer[(NSUInteger)totalNumberOfBytesWritten] maxLength:(length - (NSUInteger)totalNumberOfBytesWritten)];
+            if (numberOfBytesWritten == -1) {
+                break;
+            }
+            totalNumberOfBytesWritten += numberOfBytesWritten;
+        }
+        
+        if (self.fileDownloadOutputStream.streamError) {
+            [self.connection cancel];
+            [self performSelector:@selector(connection:didFailWithError:) withObject:self.connection withObject:self.fileDownloadOutputStream.streamError];
+            return;
+        }
+    }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         self.totalBytesRead += (long long)length;
 
@@ -691,6 +729,15 @@ didReceiveResponse:(NSURLResponse *)response
        self.outputStream = nil;
     }
 
+    if([self downloadDestinationPath]){
+        [self.fileDownloadOutputStream close];
+        self.fileDownloadOutputStream = nil;
+        
+        NSError *moveError = nil;
+        [[NSFileManager defaultManager] moveItemAtPath:[self temporaryFileDownloadPath] toPath:[self downloadDestinationPath] error:&moveError];
+        [self setTemporaryFileDownloadPath:nil];
+    }
+    
     self.connection = nil;
 
     [self finish];

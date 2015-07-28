@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class QLVideoListModel;
+@class QLVideoListModel,AFHTTPRequestOperation;
 @interface QLVideoListCell : UITableViewCell
 
 @property (nonatomic, weak) QLVideoListModel *model;
+@property (nonatomic, weak) AFHTTPRequestOperation *op;
 
 @end

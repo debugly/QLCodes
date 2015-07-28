@@ -326,6 +326,10 @@
                         progressBlock:(void (^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations))progressBlock
                       completionBlock:(void (^)(NSArray *operations))completionBlock;
 
+//自动下载保存到文件；
+@property (nonatomic, assign) BOOL notAllowResumeForFileDownloads;
+@property (nonatomic, copy) NSString *downloadDestinationPath;
+
 @end
 
 ///--------------------
@@ -341,3 +345,4 @@ extern NSString * const AFNetworkingOperationDidStartNotification;
  Posted when an operation finishes.
  */
 extern NSString * const AFNetworkingOperationDidFinishNotification;
+

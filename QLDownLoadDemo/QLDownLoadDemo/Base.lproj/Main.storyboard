@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--导航-->
         <scene sceneID="Tkj-ae-1xt">
             <objects>
-                <navigationController id="xTo-zP-a6Z" sceneMemberID="viewController">
+                <navigationController title="导航" id="xTo-zP-a6Z" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cYz-bF-Jlm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -17,13 +17,14 @@
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZu-Me-tsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" style="plain" id="9u6-Rp-z4d"/>
             </objects>
             <point key="canvasLocation" x="-956" y="-152"/>
         </scene>
-        <!--Video List Controller-->
+        <!--下载列表-->
         <scene sceneID="agR-Y0-K47">
             <objects>
-                <tableViewController id="rLo-3n-Ari" customClass="QLVideoListController" sceneMemberID="viewController">
+                <tableViewController title="下载列表" id="rLo-3n-Ari" customClass="QLVideoListController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="22" sectionFooterHeight="22" id="xln-g8-XCZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,14 +41,14 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJh-RU-UaZ">
                                             <rect key="frame" x="533" y="25" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LT5-cv-k9e">
                                             <rect key="frame" x="55" y="30" width="42" height="21"/>
                                             <color key="backgroundColor" red="0.80973131300000001" green="1" blue="0.69768235209999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -73,7 +74,13 @@
                             <outlet property="delegate" destination="rLo-3n-Ari" id="fey-5y-QXx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eox-8S-9SV"/>
+                    <navigationItem key="navigationItem" title="下载列表" id="eox-8S-9SV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="refresh" id="abY-r8-44z">
+                            <connections>
+                                <action selector="refreshListAction:" destination="rLo-3n-Ari" id="FLy-FN-FYS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etp-jN-v0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -238,6 +238,22 @@
     return operation;
 }
 
+- (AFHTTPRequestOperation *)DownLoad:(NSString *)URLString
+                          parameters:(id)parameters
+             downloadDestinationPath:(NSString *)desPath
+         allowResumeForFileDownloads:(BOOL)allow
+                             success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
+                             failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    AFHTTPRequestOperation *operation = [self HTTPRequestOperationWithHTTPMethod:@"POST" URLString:URLString parameters:parameters success:success failure:failure];
+    operation.downloadDestinationPath = desPath;
+    
+    [self.operationQueue addOperation:operation];
+    
+    return operation;
+
+}
+
 #pragma mark - NSObject
 
 - (NSString *)description {

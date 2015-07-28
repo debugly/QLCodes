@@ -8,6 +8,7 @@
 
 #import "QLVideoListCell.h"
 #import "QLVideoListModel.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface QLVideoListCell ()
 
@@ -35,4 +36,16 @@
     }
 }
 
+- (void)setOp:(AFHTTPRequestOperation *)op
+{
+    if (_op != op) {
+        _op = op;
+        [op setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+            //            NSLog(@"-c:%.2fKb;a:%.2fKb;t:%.2fMb",bytesRead/1024.0,totalBytesRead/1024.0,totalBytesExpectedToRead/1024.0/1024.0);
+            float progress = 1.0*totalBytesRead/totalBytesExpectedToRead;
+//            NSLog(@"-p:%.2f",progress);
+            self.downLoadPV.progress = progress;
+        }];
+    }
+}
 @end
