@@ -95,6 +95,11 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 - (void)registerMemoryWarningNotification
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -135,25 +140,29 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
 
 - (void)setUrlArr:(NSArray *)urlArr
 {
-    _urlArr = urlArr;
+//    copy个新的，防止外部改变了，影响了轮播图
+    _urlArr = [urlArr copy];
     if (_urlArr && _urlArr.count > 0) {
         
         self.currentIdx = 0;
+//        更新映射的索引；
         [self updateMapedIdx:[self prepareNeedShowPageIdxArr]];
         [self reloadData];
         
         if ([self totalCount] > 1) {
             self.scrollEnabled = YES;
+//            显示第一张；假如有n（n > 1）帧，那么［n－1，0，1］
             [self scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
         }else{
             self.scrollEnabled = NO;
         }
-        
+//        重设下，更新自动轮播的状态；
         self.allowAutoScroll = self.allowAutoScroll;
-        
+//        下载图片；
         for (NSString *url in _urlArr) {
             __weak __typeof(self)weakSelf = self;
             [[SDWebImageManager sharedManager]downloadImageWithURL:[NSURL URLWithString:url] options:0 progress:NULL completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+//                更新下当前显示的图片；
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 if (strongSelf && image) {
                     [strongSelf reloadItemsAtIndexPaths:[strongSelf indexPathsForVisibleItems]];
@@ -161,6 +170,7 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
             }];
         }
     }else{
+//        重设下，更新自动轮播的状态；
         self.allowAutoScroll = self.allowAutoScroll;
         [self reloadData];
     }
@@ -205,6 +215,7 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     }
 }
 
+//配置timer；
 - (void)resetTimer
 {
     if (self.timer) {
@@ -213,7 +224,8 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     }
     __weak __typeof(self)weakSelf = self;
     NSTimer *timer = [NSTimer scheduledWithTimeInterval:_autoScrollTimeInterval repeats:YES block:^{
-        [weakSelf autoScrollLoop];
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        [strongSelf autoScrollLoop];
     }];
     
     self.timer = timer;
@@ -248,6 +260,7 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     return [NSString stringWithFormat:@"%zi",idx];
 }
 
+//通过item获取对应的数组索引；
 - (NSInteger)itemMapedURLidx:(NSUInteger)item
 {
     NSNumber *number = [self.showURLIdxMap objectForKey:[self getMapKey:item]];
@@ -258,20 +271,26 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     }
 }
 
+//通过索引查找（下载）图片；
 - (UIImage *)fetchImageForCellWithURLidx:(NSUInteger)idx
 {
     if (idx < self.urlArr.count) {
         NSString *url = [self.urlArr objectAtIndex:idx];
+//        先查内存；
         UIImage *image = [[SDImageCache sharedImageCache]imageFromMemoryCacheForKey:url];
         if(image){
             return image;
         }else{
+//            内存里没有，就查本地；
             __weak __typeof(self)weakSelf = self;
             [[SDImageCache sharedImageCache]queryDiskCacheForKey:url done:^(UIImage *image, SDImageCacheType cacheType) {
-                [[SDImageCache sharedImageCache]storeImage:image forKey:url toDisk:NO];
-                __strong __typeof(weakSelf)strongSelf = weakSelf;
-                if (strongSelf && image) {
-                    [strongSelf reloadItemsAtIndexPaths:[strongSelf indexPathsForVisibleItems]];
+//                查到了就放内存，刷新下view；
+                if (image) {
+                    [[SDImageCache sharedImageCache]storeImage:image forKey:url toDisk:NO];
+                    __strong __typeof(weakSelf)strongSelf = weakSelf;
+                    if (strongSelf && image) {
+                        [strongSelf reloadItemsAtIndexPaths:[strongSelf indexPathsForVisibleItems]];
+                    }
                 }
             }];
         }
@@ -284,30 +303,32 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     EZCarouseCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:EZCarouseCellReuseIdentifier forIndexPath:indexPath];
+//    通过item获取对应的数组索引；
     NSInteger idx = [self itemMapedURLidx:indexPath.item];
     UIImage *image = nil;
     if (idx != NSNotFound) {
         image = [self fetchImageForCellWithURLidx:idx];
     }
+//    找不到图片就用placeHolder
     if (!image && self.placeHolderImage) {
         image = self.placeHolderImage;
     }
     cell.imgView.image = image;
-    cell.imgView.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 
+//根据图片的数量配置cell个数；
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if ([self totalCount] == 1){
-        return 1;
+        return 1;//一个不让滚动
     }else if([self totalCount] > 1){
-        return 3;
+        return 3;//超过一个就用3个，然后显示中间的
     }else{
         return 0;
     }
 }
-
+//点击支持代理和block回调
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.carouseDelegate && [self.carouseDelegate respondsToSelector:@selector(ezCarouseImageView:didClickedImageView:)]) {
@@ -328,11 +349,11 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat contentOffsetX = scrollView.contentOffset.x;
-    
+    //显示了第3个item,或者第1个item时就要更新下显示的图片索引数组
     if(contentOffsetX >= (2 * CGRectGetWidth(scrollView.frame))) {
-        [self showNextPage];
+        [self showNextPage];//这个会更新视图
     }else if(contentOffsetX <= 0) {
-        [self showPreviousPage];
+        [self showPreviousPage];//这个会更新视图
     }
 }
 
@@ -369,6 +390,7 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
     }
 }
 
+#pragma mark - -更新视图
 - (void)updateSubViews
 {
     NSArray *idxArr = [self prepareNeedShowPageIdxArr];
@@ -399,6 +421,16 @@ NSString *const EZCarouseCellReuseIdentifier = @"EZCarouseCellReuseIdentifier";
 {
     NSInteger currentIdx = [self getValidNextPageIndexWithPageIndex:self.currentIdx - 1];
     [self showPage:currentIdx];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self resumeAutoScroll];
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [self resumeAutoScroll];
 }
 
 @end

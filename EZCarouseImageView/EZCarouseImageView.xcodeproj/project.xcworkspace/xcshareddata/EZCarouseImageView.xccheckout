@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>ED4545CC-7BA9-433E-B6E4-05E0ECD1905F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EZCarouseImageView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>42CAAD6174D46DFEEC77D7D09FA4DAC31E0C4A4B</key>
+		<string>https://github.com/SummerHanada/QLCodes.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EZCarouseImageView/EZCarouseImageView.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>42CAAD6174D46DFEEC77D7D09FA4DAC31E0C4A4B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/SummerHanada/QLCodes.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>42CAAD6174D46DFEEC77D7D09FA4DAC31E0C4A4B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>42CAAD6174D46DFEEC77D7D09FA4DAC31E0C4A4B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>QLCodes</string>
+		</dict>
+	</array>
+</dict>
+</plist>
